@@ -2,13 +2,13 @@ package domain.model;
 
 public class Employee extends Person{
 
-	private String documentNumber;
+	private String identityNumber;
 
-	public String getDocumentNumber() {
-		return documentNumber;
+	public String getIdentityNumber() {
+		return identityNumber;
 	}
 
-	public void setDocumentNumber(String documentNumber) {
-		this.documentNumber = documentNumber;
+	public void setIdentityNumber(String identityNumber) {
+		this.identityNumber = identityNumber;
 	}
 }

@@ -1,3 +1,5 @@
+package dao;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -6,7 +8,6 @@ import java.sql.Statement;
 public abstract class RepositoryBase {
 
 	private Connection connection;
-
 
 	public Connection getConnection() {
 		return connection;
@@ -19,8 +20,6 @@ public abstract class RepositoryBase {
 
 	protected abstract String createTableSql();
 	protected abstract String tableName();
-	
-	
 
 	private void createTableIfnotExists() {
 		try {

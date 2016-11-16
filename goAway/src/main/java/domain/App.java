@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import dao.*;
-import domain.model.Klient;
+import domain.model.Client;
 
 public class App {
     public static void main(String[] args) {
@@ -15,16 +15,16 @@ public class App {
             CountryRepository countryRepository = new CountryRepository(connection);
             EmployeeRepository employeeRepository = new EmployeeRepository(connection);
             HotelRepository hotelRepository = new HotelRepository(connection);
-            KlientRepository klientRepository = new KlientRepository(connection);
-            MealRepository mealRepository = new MealRepository(connection);
-            PaymentRepository paymentRepository = new PaumentRepository(connection);
+            ClientRepository clientRepository = new ClientRepository(connection);
+            //MealRepository mealRepository = new MealRepository(connection);
+            PaymentRepository paymentRepository = new PaymentRepository(connection);
             TourRepository tourRepository = new TourRepository(connection);
             
-            Klient janek = new Klient();
+            Client janek = new Client();
             janek.setName("janek");
             janek.setSurname("kowalski");
             //spersonRepository.add(janek);
-            Klient janekFromDb = klientRepository.get(0);
+            Client janekFromDb = clientRepository.get(0);
             System.out.println(janekFromDb.getName() + " " + janekFromDb.getSurname());
             System.out.print("End");
 

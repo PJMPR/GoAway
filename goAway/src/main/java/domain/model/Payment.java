@@ -1,9 +1,11 @@
 package domain.model;
 
+import java.util.Date;
+
 public class Payment {
 
 	private int id;
-	private Date Date;
+	private Date date;
 	private int quantity;
 	
 	public int getId() {
@@ -15,13 +17,13 @@ public class Payment {
 	}
 	
 	public Date getDate() {
-		return Date;
+		return date;
 	}
-	
+
 	public void setDate(Date date) {
-		Date = date;
+		this.date = date;
 	}
-	
+
 	public int getQuantity() {
 		return quantity;
 	}
@@ -29,6 +31,4 @@ public class Payment {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	
-	
 }
