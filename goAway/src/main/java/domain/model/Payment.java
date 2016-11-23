@@ -2,11 +2,14 @@ package domain.model;
 
 import java.util.Date;
 
-public class Payment {
+public class Payment implements IHaveId{
 
 	private int id;
 	private Date date;
-	private int quantity;
+	private double amount;
+	private int tourId;
+	private int employeeId;
+	private int clientId;
 	
 	public int getId() {
 		return id;
@@ -24,11 +27,35 @@ public class Payment {
 		this.date = date;
 	}
 
-	public int getQuantity() {
-		return quantity;
+	public double getAmount() {
+		return amount;
 	}
-	
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public int getTourId() {
+		return tourId;
+	}
+
+	public void setTourId(int tourId) {
+		this.tourId = tourId;
+	}
+
+	public int getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
+	}
+
+	public int getClientId() {
+		return clientId;
+	}
+
+	public void setClientId(int clientId) {
+		this.clientId = clientId;
 	}
 }

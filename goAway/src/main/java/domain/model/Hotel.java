@@ -1,10 +1,11 @@
 package domain.model;
 
-public class Hotel {
+public class Hotel implements IHaveId{
 
 	private int id;
 	private String name;
-	private int Category;
+	private int category;
+	private int tourId;
 	
 	public int getId() {
 		return id;
@@ -21,12 +22,20 @@ public class Hotel {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public int getCategory() {
-		return Category;
+		return category;
 	}
-	
+
 	public void setCategory(int category) {
-		Category = category;
+		this.category = category;
+	}
+
+	public int getTourId() {
+		return tourId;
+	}
+
+	public void setTourId(int tourId) {
+		this.tourId = tourId;
 	}
 }
