@@ -1,107 +1,17 @@
 package dao;
 
+import dao.mappers.IMapResultSetIntoEntity;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import domain.model.Employee;
 
-public class EmployeeRepository extends RepositoryBase{
+public class EmployeeRepository extends RepositoryBase<Employee>{
 	
-	String insertSql = "INSERT INTO employee(name, surname, identityNumber) VALUES (?,?,?)";
-	String selectByIdSql = "SELECT * FROM employee WHERE id=?";
-	String updateByIdSql = "UPDATE employee SET NAME=? WHERE id=?";
-	String deleteByIdSql = "DELETE FROM employee where id=?";
-	String getAllSql = "SELECT * FROM employee";
-	
-	PreparedStatement insert;
-	PreparedStatement selectById;
-	PreparedStatement updateById;
-	PreparedStatement deleteById;
-	static PreparedStatement getAll; 
-	
-	public EmployeeRepository(Connection connection) {
-		super(connection);
-		try {
-			insert = connection.prepareStatement(insertSql);
-			selectById = connection.prepareStatement(selectByIdSql);
-			updateById = connection.prepareStatement(updateByIdSql);
-			deleteById = connection.prepareStatement(deleteByIdSql);
-			getAll = connection.prepareStatement(getAllSql);
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public Employee get(int employeeId){
-		try{
-			selectById.setInt(1, employeeId);
-			ResultSet rs = selectById.executeQuery();
-			while(rs.next()){
-				Employee result = new Employee();
-				result.setId(rs.getInt("id"));
-				result.setName(rs.getString("name"));
-				result.setSurname(rs.getString("surname"));
-				result.setIdentityNumber(rs.getString("identityNumber"));
-				return result;
-			}
-		}
-		catch(SQLException ex){
-			ex.printStackTrace();
-		}
-		return null;
+	public EmployeeRepository(Connection connection, IMapResultSetIntoEntity<Employee> mapper) {
+		super(connection,mapper);
 	}
 	
-	public void add(Employee employee) {
-		try {
-			insert.setString(1, employee.getName());
-			insert.setString(2, employee.getSurname());
-			insert.setString(3, employee.getIdentityNumber());
-			insert.executeUpdate();
-		} catch (SQLException ex) {
-			ex.printStackTrace();
-		}
-	}
-	
-	public void update(Employee employee){
-		 try {
-			updateById.setString(1, employee.getName());
-		    updateById.setString(2, employee.getSurname());
-		    updateById.setString(2, employee.getIdentityNumber());
-		} catch (SQLException e) {
-		      e.printStackTrace();
-		}
-}
-	
-	public void delete(Employee employee){
-		try{
-		    deleteById.setInt(1, employee.getId());
-		}catch(Exception e) {
-			  e.printStackTrace();
-		}
-}
-	
-	public static List <Employee> getAll(){
-		List <Employee> list = new ArrayList<Employee>();
-		try{
-			ResultSet rs = getAll.executeQuery();
-			while(rs.next()){
-				Employee result = new Employee();
-				result.setId(rs.getInt(1));
-				result.setName(rs.getString(2));
-				result.setSurname(rs.getString(3));
-				result.setIdentityNumber(rs.getString(4));
-				list.add(result);
-			}
-	}catch(Exception e)
-		{e.printStackTrace();}
-		return list;
-	}
-
 	@Override
 	protected String createTableSql() {
 		return "" + "CREATE TABLE employee("
@@ -114,8 +24,43 @@ public class EmployeeRepository extends RepositoryBase{
 
 	@Override
 	protected String tableName() {
-		return "client";
+		return "employee";
 	}
-}
 
+    @Override
+    protected String insertSql() {
+        return "INSERT INTO employee("
+                + "name, surname, identityNumber,"
+                + "PAYMENT_ID,"
+                + "CLIENT_ID,"
+                + "TOUR_ID"
+                + ") VALUES (?,?,?,?,?,?)";
+    }
+
+    @Override
+    protected String updateSql() {
+        return "UPDATE EMPLOYEE SET (name, surname, identityNumber, PAYMENT_ID" +
+                ", CLIENT_ID, TOUR_ID)= (?,?,?,?,?,?) WHERE id = ?";
+    }
+
+    @Override
+    protected void setUpdate(Employee entity) throws SQLException {
+        update.setString(1, entity.getName());
+        update.setString(2, entity.getSurname());
+        update.setString(3, entity.getIdentityNumber());
+        update.setInt(4, entity.getPaymentId());
+        update.setInt(5, entity.getClientId());
+        update.setInt(6, entity.getTourId());
+    }
+
+    @Override
+    protected void setInsert(Employee entity) throws SQLException {
+        insert.setString(1, entity.getName());
+        insert.setString(2, entity.getSurname());
+        insert.setString(3, entity.getIdentityNumber());
+        insert.setInt(4, entity.getPaymentId());
+        insert.setInt(5, entity.getClientId());
+        insert.setInt(6, entity.getTourId());	
+	}
+}	
 

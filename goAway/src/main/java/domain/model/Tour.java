@@ -2,7 +2,7 @@ package domain.model;
 
 import java.util.Date;
 
-public class Tour {
+public class Tour extends EnumDictionary implements IHaveId{
 
 	private int id;
 	private String name;
@@ -10,6 +10,10 @@ public class Tour {
 	private double price;
 	private String cityOfDeparture;
 	private int amountOfDays;
+	private int paymentId;
+	private int clientId;
+	private int hotelId;
+	private int employeeId;
 	
 	public int getId() {
 		return id;
@@ -57,6 +61,38 @@ public class Tour {
 	
 	public void setAmountOfDays(int amountOfDays) {
 		this.amountOfDays = amountOfDays;
+	}
+
+	public int getPaymentId() {
+		return paymentId;
+	}
+
+	public void setPaymentId(int paymentId) {
+		this.paymentId = paymentId;
+	}
+
+	public int getClientId() {
+		return clientId;
+	}
+
+	public void setClientId(int clientId) {
+		this.clientId = clientId;
+	}
+
+	public int getHotelId() {
+		return hotelId;
+	}
+
+	public void setHotelId(int hotelId) {
+		this.hotelId = hotelId;
+	}
+
+	public int getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
 	}
 }
 

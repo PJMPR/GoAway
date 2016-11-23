@@ -1,23 +1,15 @@
-ackage domain.model;
+package domain.model;
 
-public class Country {
+public enum Country {
 
-	private int id;
-	private String name;
+Italy, France, Spain, Croatia, Cyprus, Egypt, Turkey, Thailand;
 	
-	public int getId() {
-		return id;
-	}
-	
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
+public static Country getByName(String enumName){
+	 for (Country coun : Country.values()) {
+		 if (coun.toString().equalsIgnoreCase(enumName)){
+			 return coun;
+		 }    	 
+	 }
+	 return null;
+}
 }
