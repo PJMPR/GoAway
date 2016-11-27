@@ -10,89 +10,77 @@ public class Tour extends EnumDictionary implements IHaveId{
 	private double price;
 	private String cityOfDeparture;
 	private int amountOfDays;
-	private int paymentId;
-	private int clientId;
-	private int hotelId;
-	private int employeeId;
+	private Payment payment;
+	private Client client;
+	private Hotel hotel;
+	private Employee employee;
+	private EnumDictionary EnumDictionary;
 	
 	public int getId() {
 		return id;
 	}
-	
 	public void setId(int id) {
 		this.id = id;
 	}
-	
 	public String getName() {
 		return name;
 	}
-	
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 	public Date getDateOfDeparture() {
 		return dateOfDeparture;
 	}
-	
 	public void setDateOfDeparture(Date dateOfDeparture) {
 		this.dateOfDeparture = dateOfDeparture;
 	}
-	
 	public double getPrice() {
 		return price;
 	}
-	
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	
 	public String getCityOfDeparture() {
 		return cityOfDeparture;
 	}
-	
 	public void setCityOfDeparture(String cityOfDeparture) {
 		this.cityOfDeparture = cityOfDeparture;
 	}
-	
 	public int getAmountOfDays() {
 		return amountOfDays;
 	}
-	
 	public void setAmountOfDays(int amountOfDays) {
 		this.amountOfDays = amountOfDays;
 	}
-
-	public int getPaymentId() {
-		return paymentId;
+	public Payment getPayment() {
+		return payment;
 	}
-
-	public void setPaymentId(int paymentId) {
-		this.paymentId = paymentId;
+	public void setPayment(Payment payment) {
+		this.payment = payment;
 	}
-
-	public int getClientId() {
-		return clientId;
+	public Client getClient() {
+		return client;
 	}
-
-	public void setClientId(int clientId) {
-		this.clientId = clientId;
+	public void setClient(Client client) {
+		this.client = client;
 	}
-
-	public int getHotelId() {
-		return hotelId;
+	public Hotel getHotel() {
+		return hotel;
 	}
-
-	public void setHotelId(int hotelId) {
-		this.hotelId = hotelId;
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
 	}
-
-	public int getEmployeeId() {
-		return employeeId;
+	public Employee getEmployee() {
+		return employee;
 	}
-
-	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+	public EnumDictionary getEnumDictionary() {
+		return EnumDictionary;
+	}
+	public void setEnumDictionary(EnumDictionary enumDictionary) {
+		EnumDictionary = enumDictionary;
 	}
 }
 
