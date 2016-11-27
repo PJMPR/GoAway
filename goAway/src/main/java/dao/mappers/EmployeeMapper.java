@@ -3,7 +3,7 @@ package dao.mappers;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import domain.model.Employee;
+import domain.model.*;
 
 public class EmployeeMapper implements IMapResultSetIntoEntity {
 	
@@ -11,11 +11,12 @@ public class EmployeeMapper implements IMapResultSetIntoEntity {
         Employee employee = new Employee();
         employee.setId(rs.getInt("id"));
         employee.setIdentityNumber(rs.getString("identity number"));
-        employee.setPaymentId(rs.getInt("PAYMENT_ID"));
-        employee.setClientId(rs.getInt("CLIENT_ID"));
-        employee.setTourId(rs.getInt("TOUR_ID"));
-
+        employee.setPayment((Payment)rs.getObject("PAYMENT_ID"));
+        employee.setClient((Client)rs.getObject("CLIENT_ID"));
+        employee.setTour((Tour)rs.getObject("TOUR_ID"));
+        
         return employee;
     }
 }
+
 
