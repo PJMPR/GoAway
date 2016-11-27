@@ -46,10 +46,6 @@ public abstract class RepositoryBase<TEntity extends IHaveId> implements IReposi
 		}
 	}
 
-
-	/* (non-Javadoc)
-	 * @see dao.IRepository#getAll()
-	 */
 	public List<TEntity> getAll() {
 		try {
 			ResultSet rs = selectAll.executeQuery();
@@ -64,9 +60,6 @@ public abstract class RepositoryBase<TEntity extends IHaveId> implements IReposi
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see dao.IRepository#get(int)
-	 */
 	public TEntity get(int personId) {
 		try {
 			selectById.setInt(1, personId);
@@ -81,10 +74,6 @@ public abstract class RepositoryBase<TEntity extends IHaveId> implements IReposi
 
 	}
 
-	
-	/* (non-Javadoc)
-	 * @see dao.IRepository#update(TEntity)
-	 */
 	public void update(TEntity entity) {
 		try {
 			setUpdate(entity);
@@ -95,9 +84,6 @@ public abstract class RepositoryBase<TEntity extends IHaveId> implements IReposi
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see dao.IRepository#add(TEntity)
-	 */
 	public void add(TEntity entity) {
 		try {
 			setInsert(entity);
@@ -106,9 +92,7 @@ public abstract class RepositoryBase<TEntity extends IHaveId> implements IReposi
 			ex.printStackTrace();
 		}
 	}
-	/* (non-Javadoc)
-	 * @see dao.IRepository#delete(TEntity)
-	 */
+
 	public void delete(TEntity entity) {
 		try {
 			delete.setInt(1, entity.getId());
