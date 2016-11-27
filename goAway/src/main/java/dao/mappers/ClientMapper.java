@@ -3,7 +3,7 @@ package dao.mappers;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import domain.model.Client;
+import domain.model.*;
 
 public class ClientMapper implements IMapResultSetIntoEntity {
 	
@@ -11,9 +11,9 @@ public class ClientMapper implements IMapResultSetIntoEntity {
         Client client = new Client();
         client.setId(rs.getInt("id"));
         client.setPassportNumber(rs.getString("passport number"));
-        client.setPaymentId(rs.getInt("PAYMENT_ID"));
-        client.setEmployeeId(rs.getInt("EMPLOYEE_ID"));
-        client.setTourId(rs.getInt("TOUR_ID"));
+        client.setPayment((Payment)rs.getObject("PAYMENT_ID"));
+        client.setEmployee((Employee)rs.getObject("EMPLOYEE_ID"));
+        client.setTour((Tour)rs.getObject("TOUR_ID"));
 
         return client;
     }
