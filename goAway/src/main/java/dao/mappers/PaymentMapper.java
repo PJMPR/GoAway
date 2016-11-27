@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
-import domain.model.Payment;
+import domain.model.*;
 
 public class PaymentMapper implements IMapResultSetIntoEntity {
 	
@@ -13,9 +13,9 @@ public class PaymentMapper implements IMapResultSetIntoEntity {
         payment.setId(rs.getInt("id"));
         payment.setDate(rs.getDate("date"));
         payment.setAmount(rs.getInt("amount"));
-        payment.setTourId(rs.getInt("TOUR_ID"));
-        payment.setEmployeeId(rs.getInt("EMPLOYEE_ID"));
-        payment.setClientId(rs.getInt("CLIENT_ID"));
+        payment.setTour((Tour)rs.getObject("TOUR_ID"));
+        payment.setEmployee((Employee)rs.getObject("EMPLOYEE_ID"));
+        payment.setClient((Client)rs.getObject("CLIENT_ID"));
 
         return payment;
     }

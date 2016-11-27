@@ -3,7 +3,7 @@ package dao.mappers;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import domain.model.Hotel;
+import domain.model.*;
 
 public class HotelMapper implements IMapResultSetIntoEntity {
 	
@@ -12,7 +12,7 @@ public class HotelMapper implements IMapResultSetIntoEntity {
         hotel.setId(rs.getInt("id"));
         hotel.setName(rs.getString("name"));
         hotel.setCategory(rs.getInt("category"));
-        hotel.setTourId(rs.getInt("TOUR_ID"));
+        hotel.setTour((Tour)rs.getObject("TOUR_ID"));
 
         return hotel;
     }

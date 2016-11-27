@@ -48,18 +48,18 @@ public class PaymentRepository extends RepositoryBase<Payment>{
     protected void setUpdate(Payment entity) throws SQLException {
         update.setDate(1, (Date) entity.getDate());
         update.setDouble(2, entity.getAmount());
-        update.setInt(4, entity.getTourId());
-        update.setInt(5, entity.getEmployeeId());
-        update.setInt(6, entity.getClientId());
+        update.setInt(4, entity.getTour().getId());
+        update.setInt(5, entity.getEmployee().getId());
+        update.setInt(6, entity.getClient().getId());
     }
 
     @Override
     protected void setInsert(Payment entity) throws SQLException {
         insert.setDate(1, (Date) entity.getDate());
         insert.setDouble(2, entity.getAmount());
-        insert.setInt(4, entity.getTourId());
-        insert.setInt(5, entity.getEmployeeId());
-        insert.setInt(6, entity.getClientId());
+        insert.setInt(4, entity.getTour().getId());
+        insert.setInt(5, entity.getEmployee().getId());
+        insert.setInt(6, entity.getClient().getId());
 	}
 }
 

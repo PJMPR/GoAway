@@ -55,11 +55,11 @@ public class TourRepository extends RepositoryBase<Tour>{
         update.setDate(2, (Date) entity.getDateOfDeparture());
         update.setString(3, entity.getCityOfDeparture());
         update.setInt(4, entity.getAmountOfDays());
-        update.setInt(5, entity.getPaymentId());
-        update.setInt(6, entity.getClientId());
-        update.setInt(7, entity.getHotelId());
-        update.setInt(8, entity.getEmployeeId());
-        update.setInt(9, entity.getId()); //getId Enum ???
+        update.setInt(5, entity.getPayment().getId());
+        update.setInt(6, entity.getClient().getId());
+        update.setInt(7, entity.getHotel().getId());
+        update.setInt(8, entity.getEmployee().getId());
+        update.setInt(9, entity.getId());
     }
 
     @Override
@@ -68,11 +68,11 @@ public class TourRepository extends RepositoryBase<Tour>{
     	 insert.setDate(2, (Date) entity.getDateOfDeparture());
     	 insert.setString(3, entity.getCityOfDeparture());
     	 insert.setInt(4, entity.getAmountOfDays());
-    	 insert.setInt(5, entity.getPaymentId());
-    	 insert.setInt(6, entity.getClientId());
-    	 insert.setInt(7, entity.getHotelId());
-    	 insert.setInt(8, entity.getEmployeeId());
-    	 insert.setInt(9, entity.getId()); //getId Enum ???
+    	 insert.setInt(5, entity.getPayment().getId());
+    	 insert.setInt(6, entity.getClient().getId());
+    	 insert.setInt(7, entity.getHotel().getId());
+    	 insert.setInt(8, entity.getEmployee().getId());
+    	 insert.setInt(9, entity.getId());
 	}
 }
 

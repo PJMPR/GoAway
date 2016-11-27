@@ -3,39 +3,33 @@ package domain.model;
 public class Client extends Person implements IHaveId{
 
 	private String passportNumber;
-	private int paymentId;
-	private int employeeId;
-	private int tourId;
-
+	private Payment payment;
+	private Employee employee;
+	private Tour tour;
+	
 	public String getPassportNumber() {
 		return passportNumber;
 	}
-
 	public void setPassportNumber(String passportNumber) {
 		this.passportNumber = passportNumber;
 	}
-
-	public int getPaymentId() {
-		return paymentId;
+	public Payment getPayment() {
+		return payment;
 	}
-
-	public void setPaymentId(int paymentId) {
-		this.paymentId = paymentId;
+	public void setPayment(Payment payment) {
+		this.payment = payment;
 	}
-
-	public int getEmployeeId() {
-		return employeeId;
+	public Employee getEmployee() {
+		return employee;
 	}
-
-	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
-
-	public int getTourId() {
-		return tourId;
+	public Tour getTour() {
+		return tour;
 	}
-
-	public void setTourId(int tourId) {
-		this.tourId = tourId;
+	public void setTour(Tour tour) {
+		this.tour = tour;
 	}
 }
+	

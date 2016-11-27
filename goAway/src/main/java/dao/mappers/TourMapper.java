@@ -4,8 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
-import domain.model.Tour;
-import domain.model.EnumDictionary;
+import domain.model.*;
 
 public class TourMapper implements IMapResultSetIntoEntity {
 	
@@ -18,12 +17,11 @@ public class TourMapper implements IMapResultSetIntoEntity {
         tour.setPrice(rs.getDouble("price"));
         tour.setCityOfDeparture(rs.getString("city of departures"));
         tour.setAmountOfDays(rs.getInt("amount of days"));
-        tour.setPaymentId(rs.getInt("PAYMENT_ID"));
-        tour.setClientId(rs.getInt("CLIENT_ID"));
-        tour.setHotelId(rs.getInt("HOTEL_ID"));
-        tour.setEmployeeId(rs.getInt("EMPLOYEE_ID"));
-        dictionary.setId(rs.getInt("COUNTRY_ID"));
-        dictionary.setId(rs.getInt("MEAL_ID"));
+        tour.setPayment((Payment) rs.getObject("PAYMENT_ID"));
+        tour.setClient((Client) rs.getObject("CLIENT_ID"));
+        tour.setHotel((Hotel)rs.getObject("HOTEL_ID"));
+        tour.setEmployee((Employee)rs.getObject("EMPLOYEE_ID"));
+        tour.setEnumDictionary((EnumDictionary) rs.getObject("ENUM_DICTIONARY_ID"));
 
         return tour;
     }

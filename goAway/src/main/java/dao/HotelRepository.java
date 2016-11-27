@@ -42,13 +42,13 @@ public class HotelRepository extends RepositoryBase<Hotel>{
 	    @Override
 	    protected void setUpdate(Hotel entity) throws SQLException {
 	        update.setString(1, entity.getName());
-	        update.setInt(6, entity.getTourId());
+	        update.setInt(6, entity.getTour().getId());
 	    }
 
 	    @Override
 	    protected void setInsert(Hotel entity) throws SQLException {
 	        insert.setString(1, entity.getName());
-	        insert.setInt(6, entity.getTourId());	
+	        insert.setInt(6, entity.getTour().getId());	
 		}
 	}	
 

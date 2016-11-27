@@ -7,55 +7,46 @@ public class Payment implements IHaveId{
 	private int id;
 	private Date date;
 	private double amount;
-	private int tourId;
-	private int employeeId;
-	private int clientId;
+	private Tour tour;
+	private Employee employee;
+	private Client client;
 	
 	public int getId() {
 		return id;
 	}
-	
 	public void setId(int id) {
 		this.id = id;
 	}
-	
 	public Date getDate() {
 		return date;
 	}
-
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
 	public double getAmount() {
 		return amount;
 	}
-
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
-
-	public int getTourId() {
-		return tourId;
+	public Tour getTour() {
+		return tour;
 	}
-
-	public void setTourId(int tourId) {
-		this.tourId = tourId;
+	public void setTour(Tour tour) {
+		this.tour = tour;
 	}
-
-	public int getEmployeeId() {
-		return employeeId;
+	public Employee getEmployee() {
+		return employee;
 	}
-
-	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
-
-	public int getClientId() {
-		return clientId;
+	public Client getClient() {
+		return client;
 	}
-
-	public void setClientId(int clientId) {
-		this.clientId = clientId;
+	public void setClient(Client client) {
+		this.client = client;
 	}
+	
+
 }
