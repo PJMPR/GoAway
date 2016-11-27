@@ -48,9 +48,9 @@ public class ClientRepository extends RepositoryBase<Client>{
         update.setString(1, entity.getName());
         update.setString(2, entity.getSurname());
         update.setString(3, entity.getPassportNumber());
-        update.setInt(4, entity.getPaymentId());
-        update.setInt(5, entity.getEmployeeId());
-        update.setInt(6, entity.getTourId());
+        update.setInt(4, entity.getPayment().getId());
+        update.setInt(5, entity.getEmployee().getId());
+        update.setInt(6, entity.getTour().getId());
     }
 
     @Override
@@ -58,8 +58,8 @@ public class ClientRepository extends RepositoryBase<Client>{
         insert.setString(1, entity.getName());
         insert.setString(2, entity.getSurname());
         insert.setString(3, entity.getPassportNumber());
-        insert.setInt(4, entity.getPaymentId());
-        insert.setInt(5, entity.getEmployeeId());
-        insert.setInt(6, entity.getTourId());	
+        insert.setInt(4, entity.getPayment().getId());
+        insert.setInt(5, entity.getEmployee().getId());
+        insert.setInt(6, entity.getTour().getId());	
 	}
 }	

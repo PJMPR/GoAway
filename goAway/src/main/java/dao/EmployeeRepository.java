@@ -48,9 +48,9 @@ public class EmployeeRepository extends RepositoryBase<Employee>{
         update.setString(1, entity.getName());
         update.setString(2, entity.getSurname());
         update.setString(3, entity.getIdentityNumber());
-        update.setInt(4, entity.getPaymentId());
-        update.setInt(5, entity.getClientId());
-        update.setInt(6, entity.getTourId());
+        update.setInt(4, entity.getPayment().getId());
+        update.setInt(5, entity.getClient().getId());
+        update.setInt(6, entity.getTour().getId());
     }
 
     @Override
@@ -58,9 +58,9 @@ public class EmployeeRepository extends RepositoryBase<Employee>{
         insert.setString(1, entity.getName());
         insert.setString(2, entity.getSurname());
         insert.setString(3, entity.getIdentityNumber());
-        insert.setInt(4, entity.getPaymentId());
-        insert.setInt(5, entity.getClientId());
-        insert.setInt(6, entity.getTourId());	
+        insert.setInt(4, entity.getPayment().getId());
+        insert.setInt(5, entity.getClient().getId());
+        insert.setInt(6, entity.getTour().getId());	
 	}
 }	
 
