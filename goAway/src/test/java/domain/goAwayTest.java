@@ -4,14 +4,14 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import domain.model.Hotel;
+import domain.model.Country;
 
-public class goAway {
+public class goAwayTest {
 
 	@Test
 	public void testMultiplication() {
 		Destination hundred = Destination.Italy(100);
-		hundred.times(2);
-		assertEquals(200, hundred.amount);
+		assertEquals(Destination.Italy(200), hundred.times(2));
 	}
 }
+
