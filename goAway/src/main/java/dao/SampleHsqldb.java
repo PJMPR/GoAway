@@ -12,7 +12,7 @@ import java.sql.Connection;
     		try {
     			Class.forName("org.hsqldb.jdbcDriver");
     		} catch (ClassNotFoundException e) {
-    			System.err.println("НЕ удалось загрузить драйвер ДБ.");
+    			System.err.println("Nie udalo zainstalowac drajwer");
     			e.printStackTrace();
     			System.exit(1);
     		}
