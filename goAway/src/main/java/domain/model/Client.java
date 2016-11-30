@@ -32,4 +32,3 @@ public class Client extends Person implements IHaveId{
 		this.tour = tour;
 	}
 }
-	
