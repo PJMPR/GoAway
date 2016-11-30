@@ -4,7 +4,7 @@ import domain.model.Country;
 
 public class Destination implements Expression {
 
-    protected int amount; //количество проданных туров в страну
+    protected int amount;
     protected Country country;
 
     public Destination(int amount, Country country) {
@@ -23,11 +23,15 @@ public class Destination implements Expression {
     }
 
     public static Destination Italy(int amount) {
-        return new Destination(amount, Country.Italy);
+        return new Destination(amount, Country.ITA);
     }
 
     public static Destination Spain(int amount) {
-        return new Destination(amount, Country.Spain);
+        return new Destination(amount, Country.ESP);
+    }
+    
+    public static Destination Egypt(int amount) {
+        return new Destination(amount, Country.EGY);
     }
 
     public Destination times(int multiplier) {
@@ -39,7 +43,7 @@ public class Destination implements Expression {
     }
 
 
-    public Destination sale(Company company, Country to){ //посчитать количество проданных туров rate заменить на цену reduce заменить на скидку
+    public Destination sale(Company company, Country to){
         int price = company.price(country(), to);
         return new Destination(amount * price, to);
     }
