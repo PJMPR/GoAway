@@ -8,14 +8,11 @@ public class Tour extends EnumDictionary implements IHaveId{
 	private String name;
 	private Date dateOfDeparture;
 	private double price;
-	private String cityOfDeparture;
+	private String countryFrom;
+	private String countryTo;
 	private int amountOfDays;
-	private Payment payment;
 	private Client client;
-	private Hotel hotel;
-	private Employee employee;
 	private EnumDictionary EnumDictionary;
-	
 	public int getId() {
 		return id;
 	}
@@ -40,11 +37,17 @@ public class Tour extends EnumDictionary implements IHaveId{
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public String getCityOfDeparture() {
-		return cityOfDeparture;
+	public String getCountryFrom() {
+		return countryFrom;
 	}
-	public void setCityOfDeparture(String cityOfDeparture) {
-		this.cityOfDeparture = cityOfDeparture;
+	public void setCountryFrom(String countryFrom) {
+		this.countryFrom = countryFrom;
+	}
+	public String getCountryTo() {
+		return countryTo;
+	}
+	public void setCountryTo(String countryTo) {
+		this.countryTo = countryTo;
 	}
 	public int getAmountOfDays() {
 		return amountOfDays;
@@ -52,29 +55,11 @@ public class Tour extends EnumDictionary implements IHaveId{
 	public void setAmountOfDays(int amountOfDays) {
 		this.amountOfDays = amountOfDays;
 	}
-	public Payment getPayment() {
-		return payment;
-	}
-	public void setPayment(Payment payment) {
-		this.payment = payment;
-	}
 	public Client getClient() {
 		return client;
 	}
 	public void setClient(Client client) {
 		this.client = client;
-	}
-	public Hotel getHotel() {
-		return hotel;
-	}
-	public void setHotel(Hotel hotel) {
-		this.hotel = hotel;
-	}
-	public Employee getEmployee() {
-		return employee;
-	}
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
 	}
 	public EnumDictionary getEnumDictionary() {
 		return EnumDictionary;

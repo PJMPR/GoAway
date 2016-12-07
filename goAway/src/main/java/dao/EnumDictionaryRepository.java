@@ -8,7 +8,6 @@ import java.util.List;
 
 import dao.mappers.IMapResultSetIntoEntity;
 import domain.model.EnumDictionary;
-import domain.model.Meal;
 import domain.model.Country;
 
 public class EnumDictionaryRepository extends RepositoryBase<EnumDictionary> {

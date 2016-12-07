@@ -15,13 +15,9 @@ public class TourMapper implements IMapResultSetIntoEntity {
         tour.setName(rs.getString("name"));
         tour.setDateOfDeparture(rs.getDate("date of departure"));
         tour.setPrice(rs.getDouble("price"));
-        tour.setCityOfDeparture(rs.getString("city of departures"));
+        tour.setCountryFrom(rs.getString("country from"));
+        tour.setCountryTo(rs.getString("country to"));
         tour.setAmountOfDays(rs.getInt("amount of days"));
-        tour.setPayment((Payment) rs.getObject("PAYMENT_ID"));
-        tour.setClient((Client) rs.getObject("CLIENT_ID"));
-        tour.setHotel((Hotel)rs.getObject("HOTEL_ID"));
-        tour.setEmployee((Employee)rs.getObject("EMPLOYEE_ID"));
-        tour.setEnumDictionary((EnumDictionary) rs.getObject("ENUM_DICTIONARY_ID"));
 
         return tour;
     }
