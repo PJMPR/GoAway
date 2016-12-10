@@ -8,6 +8,13 @@ public class Client implements IHaveId{
 	private String passportNumber;
 	private Tour tour;
 	
+	public Client() {
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.passportNumber = passportNumber;
+		
+	}
 	public int getId() {
 		return id;
 	}

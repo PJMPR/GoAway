@@ -7,12 +7,71 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.mappers.IMapResultSetIntoEntity;
+import dao.repositories.IEnumDictionariesRepository;
+import dao.uow.IUnitOfWork;
 import domain.model.EnumDictionary;
 import domain.model.Country;
 
-public class EnumDictionaryRepository extends RepositoryBase<EnumDictionary> {
+public class EnumDictionaryRepository extends RepositoryBase<EnumDictionary> implements IEnumDictionariesRepository {
 
-	public EnumDictionaryRepository(Connection connection, IMapResultSetIntoEntity<EnumDictionary> mapper) {
+	protected EnumDictionaryRepository(Connection connection, IMapResultSetIntoEntity<EnumDictionary> mapper,
+			IUnitOfWork uow) {
+		super(connection, mapper, uow);
+		// TODO Auto-generated constructor stub
+	}
+
+	public List<EnumDictionary> withDictionaryName(String enumName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<EnumDictionary> getEnumValues(String enumName, String stringKey) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<EnumDictionary> getEnumValues(String enumName, int intKey) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected String insertSql() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected String updateSql() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected void setUpdate(EnumDictionary entity) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void setInsert(EnumDictionary entity) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected String createTableSql() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected String tableName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*public EnumDictionaryRepository(Connection connection, IMapResultSetIntoEntity<EnumDictionary> mapper) {
 		super(connection, mapper);
 	}
 
@@ -55,5 +114,20 @@ public class EnumDictionaryRepository extends RepositoryBase<EnumDictionary> {
 		insert.setString(3, entity.getValue());
 		insert.setString(4, entity.getEnumerationName());
 	}
+
+	public List<EnumDictionary> withDictionaryName(String enumName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<EnumDictionary> getEnumValues(String enumName, String stringKey) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<EnumDictionary> getEnumValues(String enumName, int intKey) {
+		// TODO Auto-generated method stub
+		return null;
+	}*/
 }
 

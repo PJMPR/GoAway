@@ -1,17 +1,78 @@
 package dao;
 
 import dao.mappers.IMapResultSetIntoEntity;
+import dao.repositories.ITourRepository;
+import dao.uow.IUnitOfWork;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.List;
 
+import domain.model.Client;
 import domain.model.EnumDictionary;
 import domain.model.Tour;
 
-public class TourRepository extends RepositoryBase<Tour>{
+public class TourRepository  implements ITourRepository{
+
+	public List<Client> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Client get(int personId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void update(Client entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void add(Client entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void delete(Client entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public List<Client> withName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Client> withDate(java.util.Date Date) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Client> withPrice(double price) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Client> withCoutryFrom(String countryFrom) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Client> withCoutryTo(String countryTo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Client> withAmountOfDays(int amountOfDays) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
-	public TourRepository(Connection connection, IMapResultSetIntoEntity<Tour> mapper) {
-        super(connection, mapper);
+	/*public TourRepository(Connection connection,
+			IMapResultSetIntoEntity<Tour> mapper, IUnitOfWork uow) {
+		super(connection, mapper, uow);
     }
 
 	@Override
@@ -60,5 +121,55 @@ public class TourRepository extends RepositoryBase<Tour>{
         insert.setString(3, entity.getCountryTo());
         insert.setInt(4, entity.getAmountOfDays());
 	}
+
+	public void update(Client entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void add(Client entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void delete(Client entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Tour get(int personId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Client> withName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Client> withDate(java.util.Date Date) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Client> withPrice(double price) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Client> withCoutryFrom(String countryFrom) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Client> withCoutryTo(String countryTo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Client> withAmountOfDays(int amountOfDays) {
+		// TODO Auto-generated method stub
+		return null;
+	}*/
 }
 
