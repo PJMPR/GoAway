@@ -5,12 +5,12 @@ import java.util.List;
 
 import domain.model.*;
 
-public interface ITourRepository extends IRepository<Client>{
+public interface ITourRepository extends IRepository<Tour>{
 
-	public List<Client> withName(String name);
-	public List<Client> withDate(Date Date);
-	public List<Client> withPrice(double price);
-	public List<Client> withCoutryFrom(String countryFrom);
-	public List<Client> withCoutryTo(String countryTo);
-	public List<Client> withAmountOfDays(int amountOfDays);
+	public List<Tour> withName(String name);
+	public List<Tour> withDateOfDeparture(java.sql.Date dateOfDeparture);
+	public List<Tour> withPrice(double price);
+	public List<Tour> withCoutryFrom(String countryFrom);
+	public List<Tour> withCoutryTo(String countryTo);
+	public List<Tour> withAmountOfDays(int amountOfDays);
 }

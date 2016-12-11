@@ -13,6 +13,7 @@ public class Tour extends EnumDictionary implements IHaveId{
 	private int amountOfDays;
 	private Client client;
 	private EnumDictionary EnumDictionary;
+	
 	public int getId() {
 		return id;
 	}
@@ -25,12 +26,15 @@ public class Tour extends EnumDictionary implements IHaveId{
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public Date getDateOfDeparture() {
-		return dateOfDeparture;
+	     return dateOfDeparture;
 	}
+
 	public void setDateOfDeparture(Date dateOfDeparture) {
-		this.dateOfDeparture = dateOfDeparture;
+	     this.dateOfDeparture = dateOfDeparture;
 	}
+	
 	public double getPrice() {
 		return price;
 	}
@@ -65,7 +69,7 @@ public class Tour extends EnumDictionary implements IHaveId{
 		return EnumDictionary;
 	}
 	public void setEnumDictionary(EnumDictionary enumDictionary) {
-		EnumDictionary = enumDictionary;
+		EnumDictionary = enumDictionary;		
 	}
 }
 

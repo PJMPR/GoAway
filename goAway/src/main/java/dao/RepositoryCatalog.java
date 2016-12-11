@@ -24,25 +24,15 @@ public class RepositoryCatalog implements IRepositoryCatalog {
 		return new ClientRepository(connection, new ClientMapper(), uow);
 	}
 
-	/*public IEnumDictionariesRepository Dictionaries() {
+	public IEnumDictionariesRepository Dictionaries() {
 		return new EnumDictionaryRepository(connection, new EnumDictionaryMapper(), uow);
 	}
 
 	public ITourRepository Tour() {
 		return new TourRepository(connection, new TourMapper(), uow);
-	}*/
+	}
 
 	public void save() {
 		uow.saveChanges();
-	}
-
-	public IEnumDictionariesRepository Dictionaries() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public ITourRepository Tour() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

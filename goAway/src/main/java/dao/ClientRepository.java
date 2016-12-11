@@ -118,5 +118,4 @@ public class ClientRepository extends RepositoryBase<Client> implements IClientR
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }
