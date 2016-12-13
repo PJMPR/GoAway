@@ -29,12 +29,14 @@ public class App {
     	client2.setName("Jan");
     	client2.setSurname("Kowalski");
     	client2.setPassportNumber("987654321");
+    	client2.setTourId(1);
     	
 	    Client client3 = new Client();
     	
     	client3.setName("Jakub");
     	client3.setSurname("Malinowski");
     	client3.setPassportNumber("135790743");
+    	client3.setTourId(2);
     	
     	EnumDictionary country = new EnumDictionary();
     	

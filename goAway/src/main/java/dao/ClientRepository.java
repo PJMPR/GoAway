@@ -29,7 +29,7 @@ public class ClientRepository extends RepositoryBase<Client> implements IClientR
 		    getName = connection.prepareStatement(getNameSql());
 		    getSurname = connection.prepareStatement(getSurnameSql());
 		    getPassportNumber = connection.prepareStatement(getPassportNumberSql());
-		    //getTour = connection.prepareStatement(getTourSql());
+		    getTour = connection.prepareStatement(getTourSql());
         }catch(SQLException e){
 		    e.printStackTrace();
         }
@@ -45,15 +45,6 @@ public class ClientRepository extends RepositoryBase<Client> implements IClientR
                 + "tour_id bigint,"
                 + "foreign key (tour_id) references tour(id));";
     }
-	
-	/*create table client
-    (name varchar(32) NOT NULL,
-    tour_id int NOT NULL,
-    SALES integer NOT NULL,
-    TOTAL integer NOT NULL,
-    PRIMARY KEY (COF_NAME),
-    FOREIGN KEY (SUP_ID)
-        REFERENCES SUPPLIERS (SUP_ID));*/
 	
 	@Override
 	protected String tableName() {
@@ -136,18 +127,4 @@ public class ClientRepository extends RepositoryBase<Client> implements IClientR
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	/*public List<Client> withTour(Tour tour) {
-		List<Client> client = new ArrayList<Client>();
-        try{
-            ((Client) getTour).setTour(tour);
-            ResultSet resultSet = getTour.executeQuery();
-            while(resultSet.next()){
-                client.add(mapper.map(resultSet));
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        return client;
-	}*/
 }
