@@ -79,7 +79,7 @@ public class TourRepository extends RepositoryBase<Tour> implements ITourReposit
     @Override
     protected void setUpdate(Tour entity) throws SQLException {
         update.setString(1, entity.getName());
-        update.setDate(2, (Date) entity.getDateOfDeparture());
+        update.setDate(2, entity.getDateOfDeparture());
         update.setDouble(3, entity.getPrice());
         update.setString(4, entity.getCountryFrom());
         update.setString(5, entity.getCountryTo());
@@ -89,11 +89,12 @@ public class TourRepository extends RepositoryBase<Tour> implements ITourReposit
     @Override
     protected void setInsert(Tour entity) throws SQLException {
         insert.setString(1, entity.getName());
-        insert.setDate(2, (Date) entity.getDateOfDeparture());
+        insert.setDate(2, entity.getDateOfDeparture());
         insert.setDouble(3, entity.getPrice());
         insert.setString(4, entity.getCountryFrom());
         insert.setString(5, entity.getCountryTo());
         insert.setInt(6, entity.getAmountOfDays());
+        //insert.setInt(7, entity.getId());
 	}
     
     public List<Tour> withName(String name) {
@@ -181,4 +182,3 @@ public List<Tour> withCoutryTo(String countryTo) {
      return tour;
 }
 }
-

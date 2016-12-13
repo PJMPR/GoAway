@@ -1,6 +1,8 @@
 package domain.model;
 
-import java.util.Date;
+import java.math.BigDecimal;
+
+import java.sql.Date;
 
 public class Tour extends EnumDictionary implements IHaveId{
 
@@ -26,21 +28,23 @@ public class Tour extends EnumDictionary implements IHaveId{
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
 	public Date getDateOfDeparture() {
-	     return dateOfDeparture;
+		return dateOfDeparture;
 	}
-
+	
 	public void setDateOfDeparture(Date dateOfDeparture) {
-	     this.dateOfDeparture = dateOfDeparture;
+		this.dateOfDeparture = dateOfDeparture;
 	}
 	
 	public double getPrice() {
 		return price;
 	}
+	
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	
 	public String getCountryFrom() {
 		return countryFrom;
 	}

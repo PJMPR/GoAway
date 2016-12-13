@@ -1,7 +1,5 @@
 package domain;
 
-import java.text.SimpleDateFormat;
-
 import dao.*;
 import dao.mappers.ClientMapper;
 import dao.mappers.EnumDictionaryMapper;
@@ -20,12 +18,12 @@ public class App {
 	
 	public static void main(String[] args) {
     	
-    	Client client = new Client();
-    	
-    	client.setName("Jadwiga");
-    	client.setSurname("Nowak");
-    	client.setPassportNumber("123456789");
-    	
+	    Client client = new Client();
+     	client.setName("Jadwiga");
+     	client.setSurname("Nowak");
+     	client.setPassportNumber("123456789");
+     	client.setTourId(0);
+		
     	Client client2 = new Client();
     	
     	client2.setName("Jan");
@@ -48,11 +46,21 @@ public class App {
     	Tour tour = new Tour();
     	
     	tour.setName("Beach Tour to Spain");
-		tour.setDateOfDeparture(new Date(116, 15, 12));
-    	tour.setPrice(500);
+		tour.setDateOfDeparture(new Date(116, 11, 13));
+    	tour.setPrice(500.0);
     	tour.setCountryFrom("Poland");
     	tour.setCountryTo("Spain");
     	tour.setAmountOfDays(5);
+    	
+    	Tour tour2 = new Tour();
+    	
+    	tour2.setName("Beach Tour to Italy");
+		tour2.setDateOfDeparture(new Date(116, 11, 23));
+    	tour2.setPrice(600.0);
+    	tour2.setCountryFrom("Poland");
+    	tour2.setCountryTo("Italy");
+    	tour2.setAmountOfDays(6);
+    	
     	
         try {
             Connection connection = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/workdb");
@@ -65,6 +73,7 @@ public class App {
             catalog.Dictionaries().add(country);
             catalog.save();
             catalog.Tour().add(tour);
+            catalog.Tour().add(tour2);
             catalog.save();
 
             

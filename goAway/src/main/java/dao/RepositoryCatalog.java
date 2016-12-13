@@ -35,4 +35,9 @@ public class RepositoryCatalog implements IRepositoryCatalog {
 	public void save() {
 		uow.saveChanges();
 	}
+
+	public domain.model.Client getTour() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
