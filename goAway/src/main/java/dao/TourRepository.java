@@ -22,6 +22,7 @@ public class TourRepository extends RepositoryBase<Tour> implements ITourReposit
     private PreparedStatement getCountryFrom;
     private PreparedStatement getCountryTo;
     private PreparedStatement getAmountOfDays;
+    private PreparedStatement getEnumDictionary;
 
 	public TourRepository(Connection connection,
 			IMapResultSetIntoEntity<Tour> mapper, IUnitOfWork uow) {
@@ -34,6 +35,7 @@ public class TourRepository extends RepositoryBase<Tour> implements ITourReposit
 		    getCountryFrom = connection.prepareStatement(getCountryForm());
 		    getCountryTo = connection.prepareStatement(getCountryToSql());
 		    getAmountOfDays = connection.prepareStatement(getAmountOfDaysSql());
+		    getEnumDictionary = connection.prepareStatement(getEnumDictionarySql());
         }catch(SQLException e){
 		    e.printStackTrace();
         }
@@ -49,8 +51,9 @@ public class TourRepository extends RepositoryBase<Tour> implements ITourReposit
 				+ "countryFrom varchar(20),"
 				+ "countryTo varchar(20)," 
 				+ "amountOfDays int,"
-			    + ")";		
-	}
+	            + "enum_id bigint,"
+                + "foreign key (enum_id) references enumDictionary(id));";
+    }
 
     @Override
     protected String tableName() {
@@ -60,13 +63,13 @@ public class TourRepository extends RepositoryBase<Tour> implements ITourReposit
     @Override
     protected String insertSql() {
         return "INSERT INTO tour("
-                + "name, dateOfDeparture, price, countryFrom, countryTo, amountOfDays"
-                + ") VALUES (?,?,?,?,?,?)";
+                + "name, dateOfDeparture, price, countryFrom, countryTo, amountOfDays, enum_id"
+                + ") VALUES (?,?,?,?,?,?,?)";
     }
 
     @Override
     protected String updateSql() {
-        return "UPDATE TOUR SET (name, dateOfDeparture, price, countryFrom, countryTo, amountOfDays)= (?,?,?,?,?,?) WHERE id = ?";
+        return "UPDATE TOUR SET (name, dateOfDeparture, price, countryFrom, countryTo, amountOfDays, enum_id)= (?,?,?,?,?,?,?) WHERE id = ?";
     }
     
     protected String getNameSql(){return "SELECT * FROM tour where name = ?";}
@@ -75,6 +78,7 @@ public class TourRepository extends RepositoryBase<Tour> implements ITourReposit
 	protected String getCountryForm(){return "SELECT * FROM tour where countryFrom=?";}
 	protected String getCountryToSql(){return "SELECT * FROM tour where countryTo = ?";}
 	protected String getAmountOfDaysSql(){return "SELECT * FROM tour where amountOfDays=?";}
+	protected String getEnumDictionarySql(){return "SELECT * FROM tour where enum_id=?";}
 
     @Override
     protected void setUpdate(Tour entity) throws SQLException {
@@ -84,6 +88,7 @@ public class TourRepository extends RepositoryBase<Tour> implements ITourReposit
         update.setString(4, entity.getCountryFrom());
         update.setString(5, entity.getCountryTo());
         update.setInt(6, entity.getAmountOfDays());
+        update.setInt(7, entity.getEnumDictionaryId());
     }
 
     @Override
@@ -94,7 +99,7 @@ public class TourRepository extends RepositoryBase<Tour> implements ITourReposit
         insert.setString(4, entity.getCountryFrom());
         insert.setString(5, entity.getCountryTo());
         insert.setInt(6, entity.getAmountOfDays());
-        //insert.setInt(7, entity.getId());
+        insert.setInt(7, entity.getEnumDictionaryId());
 	}
     
     public List<Tour> withName(String name) {

@@ -45,6 +45,13 @@ public class App {
     	country.setValue("country");
     	country.setEnumerationName("Italy");
     	
+        EnumDictionary country2 = new EnumDictionary();
+    	
+    	country2.setIntKey(2);
+    	country2.setStringKey("second");
+    	country2.setValue("country");
+    	country2.setEnumerationName("Spain");
+    	
     	Tour tour = new Tour();
     	
     	tour.setName("Beach Tour to Spain");
@@ -53,6 +60,7 @@ public class App {
     	tour.setCountryFrom("Poland");
     	tour.setCountryTo("Spain");
     	tour.setAmountOfDays(5);
+    	tour.setEnumDictionaryId(0);
     	
     	Tour tour2 = new Tour();
     	
@@ -62,20 +70,21 @@ public class App {
     	tour2.setCountryFrom("Poland");
     	tour2.setCountryTo("Italy");
     	tour2.setAmountOfDays(6);
-    	
+    	tour2.setEnumDictionaryId(1);
     	
         try {
             Connection connection = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/workdb");
             IUnitOfWork uow = new UnitOfWork(connection);
             IRepositoryCatalog catalog = new RepositoryCatalog(connection, uow);
-            catalog.Client().add(client);
-            catalog.Client().add(client2);
-            catalog.Client().add(client3);
-            catalog.save();
             catalog.Dictionaries().add(country);
+            catalog.Dictionaries().add(country2);
             catalog.save();
             catalog.Tour().add(tour);
             catalog.Tour().add(tour2);
+            catalog.save();
+            catalog.Client().add(client);
+            catalog.Client().add(client2);
+            catalog.Client().add(client3);
             catalog.save();
 
             

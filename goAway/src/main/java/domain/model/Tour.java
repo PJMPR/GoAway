@@ -1,7 +1,5 @@
 package domain.model;
 
-import java.math.BigDecimal;
-
 import java.sql.Date;
 
 public class Tour extends EnumDictionary implements IHaveId{
@@ -13,8 +11,19 @@ public class Tour extends EnumDictionary implements IHaveId{
 	private String countryFrom;
 	private String countryTo;
 	private int amountOfDays;
-	private Client client;
-	private EnumDictionary EnumDictionary;
+	private int clientId;
+	private int enumDictionaryId;
+	
+	public Tour() {
+		this.id = id;
+		this.name = name;
+		this.dateOfDeparture = dateOfDeparture;
+		this.price = price;
+		this.countryFrom = countryFrom;
+		this.countryTo = countryTo;
+		this.amountOfDays = amountOfDays;
+		this.enumDictionaryId = enumDictionaryId;
+	}
 	
 	public int getId() {
 		return id;
@@ -63,17 +72,19 @@ public class Tour extends EnumDictionary implements IHaveId{
 	public void setAmountOfDays(int amountOfDays) {
 		this.amountOfDays = amountOfDays;
 	}
-	public Client getClient() {
-		return client;
+	public int getClientId() {
+		return clientId;
 	}
-	public void setClient(Client client) {
-		this.client = client;
+	public void setClientId(int clientId) {
+		this.clientId = clientId;
 	}
-	public EnumDictionary getEnumDictionary() {
-		return EnumDictionary;
+
+	public int getEnumDictionaryId() {
+		return enumDictionaryId;
 	}
-	public void setEnumDictionary(EnumDictionary enumDictionary) {
-		EnumDictionary = enumDictionary;		
+
+	public void setEnumDictionaryId(int enumDictionaryId) {
+		this.enumDictionaryId = enumDictionaryId;
 	}
 }
 
