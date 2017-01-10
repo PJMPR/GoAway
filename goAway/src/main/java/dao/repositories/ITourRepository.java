@@ -1,7 +1,5 @@
 package dao.repositories;
 
-import java.math.BigDecimal;
-
 import java.sql.Date;
 import java.util.List;
 

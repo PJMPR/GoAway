@@ -33,6 +33,14 @@ under the License.
           <releases>
             <enabled>true</enabled>
           </releases>
+	
+<pluginGroups>
+    <!-- pluginGroup
+     | Specifies a further group identifier to use for plugin lookup.
+    <pluginGroup>com.your.plugins</pluginGroup>
+    -->
+	<pluginGroup>org.mortbay.jetty</pluginGroup>
+</pluginGroups>
           <snapshots>
             <enabled>true</enabled>
           </snapshots>

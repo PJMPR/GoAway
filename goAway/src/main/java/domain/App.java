@@ -1,9 +1,6 @@
 package domain;
 
 import dao.*;
-import dao.mappers.ClientMapper;
-import dao.mappers.EnumDictionaryMapper;
-import dao.mappers.TourMapper;
 import dao.repositories.IRepositoryCatalog;
 import dao.uow.IUnitOfWork;
 import dao.uow.UnitOfWork;
@@ -86,7 +83,6 @@ public class App {
             catalog.Client().add(client2);
             catalog.Client().add(client3);
             catalog.save();
-
             
         connection.close();
            

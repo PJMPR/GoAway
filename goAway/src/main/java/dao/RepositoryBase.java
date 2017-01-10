@@ -13,7 +13,6 @@ import dao.repositories.IRepository;
 import dao.uow.Entity;
 import dao.uow.IUnitOfWork;
 import dao.uow.IUnitOfWorkRepository;
-import domain.model.Client;
 import domain.model.IHaveId;
 
 public abstract class RepositoryBase<TEntity extends IHaveId> implements

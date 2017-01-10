@@ -11,8 +11,6 @@ import dao.mappers.IMapResultSetIntoEntity;
 import dao.repositories.IEnumDictionariesRepository;
 import dao.uow.IUnitOfWork;
 import domain.model.EnumDictionary;
-import domain.model.Client;
-import domain.model.Country;
 
 public class EnumDictionaryRepository 
 extends RepositoryBase<EnumDictionary> 

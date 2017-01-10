@@ -13,7 +13,6 @@ public class ClientMapper implements IMapResultSetIntoEntity {
         client.setName(rs.getString("name"));
         client.setSurname(rs.getString("surname"));
         client.setPassportNumber(rs.getString("passport number"));
-       // client.setTour((Tour)rs.getObject("tour_id"));
 
         return client;
     }
