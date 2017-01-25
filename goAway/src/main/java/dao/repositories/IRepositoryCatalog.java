@@ -6,9 +6,9 @@ import domain.model.Client;
 
 public interface IRepositoryCatalog {
 
-	public IClientRepository Client();
+	public IClientRepository Clients();
 	public IEnumDictionariesRepository Dictionaries();
-	public ITourRepository Tour();
-	void save() throws SQLException;
-	public Client getTour();
+	public ITourRepository Tours();
+	void saveAndClose();
+	void save();
 }

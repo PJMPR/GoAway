@@ -18,7 +18,7 @@ public class HelloServlet extends HttpServlet{
 		String name = request.getParameter("name");
 		if(name==null || name.equals(""))
 		{
-			response.sendRedirect("/text.html");
+			response.sendRedirect("/");
 		}
 		response.setContentType("text/html");
 		response.getWriter().println("<h1>Hello " 
@@ -26,7 +26,7 @@ public class HelloServlet extends HttpServlet{
 				+"</h1>");
 }
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
 		String name = request.getParameter("name");
 		response.setContentType("text/html");

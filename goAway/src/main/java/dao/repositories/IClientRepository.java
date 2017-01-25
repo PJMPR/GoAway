@@ -6,6 +6,5 @@ import domain.model.*;
 
 public interface IClientRepository extends IRepository<Client>{
 
-	public List<Client> withPassportNumber(String passportNumber);
-	public List<Client> withTour(Tour tour);
+	public List<Tour> byClient(Client client);
 }
