@@ -1,11 +1,13 @@
 package rest.dto;
 
 import domain.model.Country;
-import domain.model.Client;
+
+import javax.xml.bind.annotation.XmlRootElement;
 
 import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
 
+@XmlRootElement
 public class TourDto {
 
     private int id;
