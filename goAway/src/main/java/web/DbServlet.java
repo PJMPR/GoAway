@@ -16,8 +16,8 @@ import javax.servlet.http.HttpSession;
 
 import dao.RepositoryCatalog;
 import dao.repositories.IRepositoryCatalog;
-import domain.model.Client;
 import domain.model.Tour;
+import domain.model.Client;
 
 @WebServlet("/DbServlet")
 public class DbServlet extends HttpServlet {
@@ -42,16 +42,17 @@ public class DbServlet extends HttpServlet {
 				catalog.Tours().add(tour);
 				catalog.save();
 				tour.setId(catalog.Tours().getLastId());
-				Tour log = new Tour();
-				log.setAmount((double)tour.getAsset().floatValue());
+				/*History log = new History();
+				log.setAmount((double)wallet.getAsset().floatValue());
 				log.setDate(new Date(new java.util.Date().getTime()));
 				log.setRate(1.0);
-				log.setFrom(tour);
-                log.setTo(tour);
+				log.setFrom(wallet);
+				log.setTo(wallet);*/
+				//catalog.WallettHistory().add(log);
 			}
 			catalog.saveAndClose();
-			session.removeAttribute("person");
-			session.removeAttribute("wallets");
+			session.removeAttribute("client");
+			session.removeAttribute("tours");
 			response.sendRedirect("index.html");
 		} catch (Exception e) {
 			e.printStackTrace();

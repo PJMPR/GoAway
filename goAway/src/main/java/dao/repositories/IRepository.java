@@ -15,4 +15,6 @@ public interface IRepository<TEntity extends IHaveId> {
 	public void add(TEntity entity);
 
 	public void delete(TEntity entity);
+	
+	public int getLastId();
 }

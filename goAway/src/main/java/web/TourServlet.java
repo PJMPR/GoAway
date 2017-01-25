@@ -32,7 +32,7 @@ public class TourServlet extends HttpServlet{
 	        resp.sendRedirect("addPerson.html");
         }
         Tour tour = new Tour();
-        tour.setCurrency(Tour.valueOf(name));
+        tour.setCountry(Country.valueOf(name));
         tour.setAsset(value);
         tour.setClient(client);
         List<Tour> tours = (List<Tour>) session.getAttribute("tours");

@@ -121,9 +121,9 @@ public class ClientRepository extends RepositoryBase<Client> implements IClientR
             e.printStackTrace();
         }
         return client;
-    }
+	}
 
-	public List<Client> withTour(Tour tour) {
+	public List<Tour> byClient(Client client) {
 		// TODO Auto-generated method stub
 		return null;
 	}

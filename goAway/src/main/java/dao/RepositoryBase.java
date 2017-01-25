@@ -25,6 +25,7 @@ protected PreparedStatement selectById;
 protected PreparedStatement update;
 protected PreparedStatement delete;
 protected PreparedStatement selectAll;
+protected PreparedStatement selectLastId;
 protected IUnitOfWork uow;
 protected IMapResultSetIntoEntity<TEntity> mapper;
 
@@ -123,6 +124,18 @@ try {
 } catch (SQLException e) {
 	e.printStackTrace();
 }
+}
+
+public int getLastId() {
+	try {
+		ResultSet rs = selectLastId.executeQuery();
+		while (rs.next()) {
+			return rs.getInt("id");
+		}
+	} catch (SQLException ex) {
+		ex.printStackTrace();
+	}
+	return 0;
 }
 
 protected String selectByIdSql() {

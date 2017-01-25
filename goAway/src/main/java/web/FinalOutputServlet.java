@@ -22,9 +22,8 @@ public class FinalOutputServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession session = req.getSession();
-
         
-        Client client = (Client) client.getAttribute(SessionKey.client);
+        Client client = (Client) session.getAttribute(SessionKey.client);
         Tour tour = (Tour) session.getAttribute(SessionKey.tours);
 
         

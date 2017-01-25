@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.TemporaryCurrencyEnumHelper;
+import dao.TemporaryCountryEnumHelper;
 
 
 @WebServlet("/Test")
@@ -20,11 +20,11 @@ public class Test extends HttpServlet {
 	protected void doGet(HttpServletRequest request, 
 			HttpServletResponse response) 
 					throws ServletException, IOException {
-		TemporaryCurrencyEnumHelper helper = new TemporaryCurrencyEnumHelper();
+		TemporaryCountryEnumHelper helper = new TemporaryCountryEnumHelper();
 		
 		String insertEnums = request.getParameter("initEnum");
 		if(insertEnums!=null)
-			helper.insertCurrencyEnums();
+			helper.insertCountryEnums();
 		
 		
 		String name = request.getParameter("name");
