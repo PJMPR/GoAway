@@ -26,7 +26,7 @@ public class AddAccountServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, 	HttpServletResponse resp)throws ServletException, IOException {
 	
-    String name = req.getParameter("currency");
+    String name = req.getParameter("country");
     BigDecimal value = new BigDecimal(req.getParameter("value"));
     HttpSession session = req.getSession();
 	Client client = (Client) session.getAttribute(SessionKey.client);

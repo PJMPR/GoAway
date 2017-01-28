@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import domain.model.Client;
 
-@WebServlet("/personServlet")
+@WebServlet("/clientServlet")
 public class ClientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -24,7 +24,7 @@ public class ClientServlet extends HttpServlet {
 		client.setSurname(request.getParameter("surname"));
 		HttpSession session = request.getSession();
 		session.setAttribute(SessionKey.client, client);
-		response.sendRedirect("addWallet.html");
+		response.sendRedirect("addTour.html");
 		
 	}
 }

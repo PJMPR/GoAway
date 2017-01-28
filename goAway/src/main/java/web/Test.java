@@ -44,7 +44,7 @@ public class Test extends HttpServlet {
 				+ session.getAttribute("name")
 				+ "</h1>");
 
-		response.sendRedirect("/addPerson.html");
+		response.sendRedirect("/addClient.html");
 	}
 
 }
