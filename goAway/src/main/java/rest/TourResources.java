@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 
 import domain.model.Tour;
 
-@Path("/tours")
+@Path("tours")
 @Stateless
 public class TourResources {
 

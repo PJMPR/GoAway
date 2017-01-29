@@ -31,7 +31,7 @@ public class ClientFilter implements Filter {
 		HttpSession session = req.getSession();
 		Client client = (Client) session.getAttribute(SessionKey.client);
 		if(client==null){
-			((HttpServletResponse) response).sendRedirect("/addPerson.html");
+			((HttpServletResponse) response).sendRedirect("/addClient.html");
 		}
 		else{
 			chain.doFilter(request, response);

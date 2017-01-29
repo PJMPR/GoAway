@@ -34,7 +34,7 @@ public class TestFinalOutputServlet implements Filter{
         if (tours != null && tours.size() > 0) {
             chain.doFilter(request, response);
         } else {
-            resp.sendRedirect("addWallet.html");
+            resp.sendRedirect("addTour.html");
         }
 	}
 

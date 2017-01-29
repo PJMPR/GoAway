@@ -28,7 +28,7 @@ public class ClientResources {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<ClientDto> getAll(){
+    public String getAll(){
     	List<ClientDto> result = new ArrayList<ClientDto>();
         System.out.println("zaczynam pobierac dane");
     	/*for(Client p: entityManager.createNamedQuery("client.all",Client.class).getResultList()){
@@ -36,22 +36,30 @@ public class ClientResources {
         }*/
 
         System.out.println("koncze");
-        return result;
+        return "TEST";
     }
 
     
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response Add(Client client) {
         entityManager.persist(client);
         return Response.ok(client.getId()).build();
+    }
+    
+    @Path("test")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    public String test(@FormParam("name") String name){
+    	return "Test" + name;
     }
 
     @PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response update(@PathParam("id") int id, Client p) {
-        Client result = entityManager.createNamedQuery("person.id", Client.class)
+        Client result = entityManager.createNamedQuery("client.id", Client.class)
                 .setParameter("clientId", id)
                 .getSingleResult();
         if (result == null) {

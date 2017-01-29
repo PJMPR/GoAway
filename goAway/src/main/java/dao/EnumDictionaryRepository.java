@@ -20,18 +20,6 @@ protected PreparedStatement selectWithDictionaryName;
 protected PreparedStatement getEnumValuesByString;
 protected PreparedStatement getEnumValuesByInt;
 
-protected String selectWithDictionaryName() {
-	return "SELECT * FROM enumDictionary WHERE enumerationName=?";
-}
-
-protected String getEnumValuesByString() {
-	return "SELECT value FROM enumDictionary WHERE enumerationName=? AND stringKey=?";
-}
-
-protected String getEnumValuesByInt() {
-	return "SELECT value FROM enumDictionary WHERE enumerationName=? AND intKey=?";
-}
-
 public EnumDictionaryRepository(Connection connection,
 		IMapResultSetIntoEntity<EnumDictionary> mapper, IUnitOfWork uow) {
 	super(connection, mapper, uow);
@@ -53,6 +41,18 @@ protected String createTableSql() {
 			+ "value varchar(50)," 
 			+ "enumerationName varchar(50)" 
 			+ ")";
+}
+
+protected String selectWithDictionaryName() {
+	return "SELECT * FROM enumDictionary WHERE enumerationName=?";
+}
+
+protected String getEnumValuesByString() {
+	return "SELECT value FROM enumDictionary WHERE enumerationName=? AND stringKey=?";
+}
+
+protected String getEnumValuesByInt() {
+	return "SELECT value FROM enumDictionary WHERE enumerationName=? AND intKey=?";
 }
 
 @Override
