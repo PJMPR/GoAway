@@ -21,7 +21,7 @@ import java.util.List;
 @Stateless
 public class ClientResources {
 
-	Mapper mapper = new DozerBeanMapper();
+	//Mapper mapper = new DozerBeanMapper();
 	
     @PersistenceContext
     EntityManager entityManager;
@@ -31,9 +31,9 @@ public class ClientResources {
     public List<ClientDto> getAll(){
     	List<ClientDto> result = new ArrayList<ClientDto>();
         System.out.println("zaczynam pobierac dane");
-    	for(Client p: entityManager.createNamedQuery("client.all",Client.class).getResultList()){
+    	/*for(Client p: entityManager.createNamedQuery("client.all",Client.class).getResultList()){
         	result.add(mapper.map(p, ClientDto.class));
-        }
+        }*/
 
         System.out.println("koncze");
         return result;

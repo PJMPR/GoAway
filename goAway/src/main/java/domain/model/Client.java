@@ -9,10 +9,9 @@ import javax.xml.bind.annotation.XmlTransient;
 
 @XmlRootElement
 @Entity
-@Table(name="people")
 @NamedQueries({
-       @NamedQuery(name = "person.all", query = "SELECT p FROM Person p"),
-        @NamedQuery(name = "person.id", query = "FROM Person p WHERE p.id=:id")
+       @NamedQuery(name = "client.all", query = "SELECT p FROM Client p"),
+       @NamedQuery(name = "client.id", query = "FROM Client p WHERE p.id=:id")
 })
 
 public class Client implements IHaveId{
@@ -26,7 +25,7 @@ public class Client implements IHaveId{
 	private int tourId;
 	
 
-    @OneToMany(mappedBy="person", fetch = FetchType.LAZY)
+    //@OneToMany(mappedBy="clients", fetch = FetchType.LAZY)
 	private List<Tour> tours = new ArrayList<Tour>();
     
 

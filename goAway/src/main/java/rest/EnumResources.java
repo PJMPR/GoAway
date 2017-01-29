@@ -43,10 +43,6 @@ public class EnumResources {
         else
         {
          return Response.ok(result).build();
-        }
-        
-        		
-        		
+        }    		
     }
-    
 }
