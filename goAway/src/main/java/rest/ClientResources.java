@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.*;
+import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -27,18 +28,16 @@ public class ClientResources {
     EntityManager entityManager;
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public String getAll(){
-    	List<ClientDto> result = new ArrayList<ClientDto>();
-        System.out.println("zaczynam pobierac dane");
-    	/*for(Client p: entityManager.createNamedQuery("client.all",Client.class).getResultList()){
-        	result.add(mapper.map(p, ClientDto.class));
-        }*/
-
-        System.out.println("koncze");
-        return "TEST";
-    }
-
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response getAll() {
+        List<Client> teams = new ArrayList<>();
+        for (Client c : entityManager
+                .createNamedQuery("client.all", Client.class)
+                .getResultList())
+            teams.add(c);
+        return Response.ok(new GenericEntity<List<Client>>(teams) {
+        }).build();
+}
     
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
