@@ -10,8 +10,10 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @Entity
 @NamedQueries({
-       @NamedQuery(name = "client.all", query = "SELECT p FROM Client p"),
-       @NamedQuery(name = "client.id", query = "FROM Client p WHERE p.id=:id")
+       
+       @NamedQuery(name = "client.all", query = "SELECT c FROM Client c"),
+       @NamedQuery(name = "client.id", query = "SELECT c FROM Client c WHERE c.id=:clientId")
+    
 })
 
 public class Client implements IHaveId{

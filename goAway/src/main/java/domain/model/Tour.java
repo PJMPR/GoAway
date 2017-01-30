@@ -18,7 +18,7 @@ import java.sql.Date;
 @Entity
 @NamedQueries({
 	@NamedQuery(name="tour.id", query="FROM Tour w WHERE w.id=:id"),
-	@NamedQuery(name="tour.client_id", query="FROM Tour w WHERE w.client.id=:client_Id")
+	@NamedQuery(name="tour.client_id", query="FROM Tour w WHERE w.client.id=:clientId")
 })
 
 public class Tour extends EnumDictionary implements IHaveId{
