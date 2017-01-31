@@ -17,8 +17,9 @@ import java.sql.Date;
 @XmlRootElement
 @Entity
 @NamedQueries({
-	@NamedQuery(name="tour.id", query="FROM Tour w WHERE w.id=:id"),
-	@NamedQuery(name="tour.client_id", query="FROM Tour w WHERE w.client.id=:clientId")
+	@NamedQuery(name="tour.all", query = "select t from Tour t"),
+	@NamedQuery(name="tour.id", query="Select t FROM Tour t WHERE t.id=:id"),
+	@NamedQuery(name="tour.client_id", query="Select t FROM Tour t WHERE t.client.id=:clientId")
 })
 
 public class Tour extends EnumDictionary implements IHaveId{
@@ -35,18 +36,6 @@ public class Tour extends EnumDictionary implements IHaveId{
 	private int clientId;
 	private int enumDictionaryId;
 	private Country country;
-	private BigDecimal asset;
-	
-	public Tour() {
-		this.id = id;
-		this.name = name;
-		this.dateOfDeparture = dateOfDeparture;
-		this.price = price;
-		this.countryFrom = countryFrom;
-		this.countryTo = countryTo;
-		this.amountOfDays = amountOfDays;
-		this.enumDictionaryId = enumDictionaryId;
-	}
 	
 	@ManyToOne
 	private Client client;
@@ -64,14 +53,6 @@ public class Tour extends EnumDictionary implements IHaveId{
 	
 	public void setCountry(Country country){
 		this.country = country;
-	}
-	
-	 public BigDecimal getAsset() {
-	        return asset;
-	    }
-
-	    public void setAsset(BigDecimal asset) {
-	        this.asset = asset;
 	}
 	    
 	public Client getClient(){
@@ -138,4 +119,3 @@ public class Tour extends EnumDictionary implements IHaveId{
 		this.enumDictionaryId = enumDictionaryId;
 	}
 }
-

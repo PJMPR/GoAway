@@ -33,7 +33,6 @@ public class TourServlet extends HttpServlet{
         }
         Tour tour = new Tour();
         tour.setCountry(Country.valueOf(name));
-        tour.setAsset(value);
         tour.setClient(client);
         List<Tour> tours = (List<Tour>) session.getAttribute("tours");
     	if(tours == null)

@@ -32,7 +32,6 @@ public class AddAccountServlet extends HttpServlet {
 	Client client = (Client) session.getAttribute(SessionKey.client);
     Tour tour = new Tour();
     tour.setCountry(Country.valueOf(name));
-    tour.setAsset(value);
     tour.setClient(client);
 	
 	List<Tour> tours = (List<Tour>) session.getAttribute(SessionKey.tours);
