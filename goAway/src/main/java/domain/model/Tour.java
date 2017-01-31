@@ -19,7 +19,7 @@ import java.sql.Date;
 @NamedQueries({
 	@NamedQuery(name="tour.all", query = "select t from Tour t"),
 	@NamedQuery(name="tour.id", query="Select t FROM Tour t WHERE t.id=:id"),
-	@NamedQuery(name="tour.client_id", query="Select t FROM Tour t WHERE t.client.id=:clientId")
+	//@NamedQuery(name="tour.client_id", query="Select t FROM Tour t WHERE t.client.id=:clientId")
 })
 
 public class Tour extends EnumDictionary implements IHaveId{
@@ -32,10 +32,10 @@ public class Tour extends EnumDictionary implements IHaveId{
 	private double price;
 	private String countryFrom;
 	private String countryTo;
-	private int amountOfDays;
-	private int clientId;
+	private String amountOfDays;
+	//private int clientId;
 	private int enumDictionaryId;
-	private Country country;
+	//private Country country;
 	
 	@ManyToOne
 	private Client client;
@@ -47,13 +47,13 @@ public class Tour extends EnumDictionary implements IHaveId{
 		this.id = id;
 	}
 	
-	public Country getCountry(){
+	/*public Country getCountry(){
 		return country;
 	}
 	
 	public void setCountry(Country country){
 		this.country = country;
-	}
+	}*/
 	    
 	public Client getClient(){
 		return client;
@@ -98,18 +98,19 @@ public class Tour extends EnumDictionary implements IHaveId{
 	public void setCountryTo(String countryTo) {
 		this.countryTo = countryTo;
 	}
-	public int getAmountOfDays() {
+
+	public String getAmountOfDays() {
 		return amountOfDays;
 	}
-	public void setAmountOfDays(int amountOfDays) {
+	public void setAmountOfDays(String amountOfDays) {
 		this.amountOfDays = amountOfDays;
 	}
-	public int getClientId() {
+	/*public int getClientId() {
 		return clientId;
 	}
 	public void setClientId(int clientId) {
 		this.clientId = clientId;
-	}
+	}*/
 
 	public int getEnumDictionaryId() {
 		return enumDictionaryId;

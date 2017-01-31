@@ -24,7 +24,7 @@ public class Client implements IHaveId{
 	private String name;
 	private String surname;
 	private String passportNumber;
-	private int tourId;
+	//private int tourId;
 	
 
     //@OneToMany(mappedBy="clients", fetch = FetchType.LAZY)
@@ -67,11 +67,11 @@ public class Client implements IHaveId{
 		this.passportNumber = passportNumber;
 	}
 	
-	public int getTourId() {
+	/*public int getTourId() {
 		return tourId;
 	}
 	
 	public void setTourId(int tourId) {
 		this.tourId = tourId;
-	}
+	}*/
 }

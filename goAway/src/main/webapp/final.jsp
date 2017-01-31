@@ -11,19 +11,19 @@
 </head>
 <body>
 	<%
-	    Client client = (Client) session.getAttribute("client");
-	    List<Tour> tours = (List) session.getAttribute("tours");
+		Client client = (Client) session.getAttribute("client");
+		Tour tour = (Tour) session.getAttribute("tour");
 	%>
-	<h1>Name: <%=client.getName() %></h1>
-	<h1>Surname: <%=client.getSurname() %></h1>
-	<h1>Tours:</h1>
-	<ol>
-		<%for(Tour tour: tours){ %>
-			<li><%=tour.getAsset() %> <%=tour.getCountry() %></li>
-		<%} %>
-	</ol>
-	<form action="DbServlet" method="get">
-	<input type="submit" value="Wyślij">
+	<h1>Twoje dane:</h1>
+	<h3><%=client.getName()%></h3>
+	<h3><%=client.getSurname()%></h3>
+	<h1>Twoja podróż:</h1>
+	<h3><%=tour.getCountryTo()%></h3>
+	<h3><%=tour.getAmountOfDays()%></h3>
+        
+     <form action="dbServlet" method="get">
+     <input type="submit" value="Dodaj">
+         
 	</form>
 </body>
 </html>

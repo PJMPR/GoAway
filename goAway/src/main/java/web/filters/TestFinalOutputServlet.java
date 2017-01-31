@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import web.SessionKey;
+import web.sessionKey;
 
 @WebFilter("/filter.jsp")
 public class TestFinalOutputServlet implements Filter{
@@ -30,7 +30,7 @@ public class TestFinalOutputServlet implements Filter{
                 HttpServletResponse resp = (HttpServletResponse)response;
 		HttpSession session = req.getSession();
 
-		ArrayList<Tour> tours = (ArrayList<Tour>) session.getAttribute(SessionKey.tours);
+		ArrayList<Tour> tours = (ArrayList<Tour>) session.getAttribute(sessionKey.tour);
         if (tours != null && tours.size() > 0) {
             chain.doFilter(request, response);
         } else {

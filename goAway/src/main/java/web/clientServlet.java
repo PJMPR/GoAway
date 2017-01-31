@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import domain.model.Client;
 
 @WebServlet("/clientServlet")
-public class ClientServlet extends HttpServlet {
+public class clientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request,
@@ -23,7 +23,7 @@ public class ClientServlet extends HttpServlet {
 		client.setName(request.getParameter("name"));
 		client.setSurname(request.getParameter("surname"));
 		HttpSession session = request.getSession();
-		session.setAttribute(SessionKey.client, client);
+		session.setAttribute("client", client);
 		response.sendRedirect("addTour.html");
 		
 	}

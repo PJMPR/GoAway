@@ -19,44 +19,38 @@ import dao.repositories.IRepositoryCatalog;
 import domain.model.Tour;
 import domain.model.Client;
 
-@WebServlet("/DbServlet")
-public class DbServlet extends HttpServlet {
+@WebServlet("/dbServlet")
+public class dbServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public DbServlet() {
+    public dbServlet() {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 		try {
 			IRepositoryCatalog catalog = new RepositoryCatalog("jdbc:hsqldb:hsql://localhost/workdb");
 			HttpSession session = request.getSession();
 			Client client = (Client) session.getAttribute("client");
-			List<Tour> tours = (List<Tour>) session.getAttribute("tours");
+			Tour tour = (Tour) session.getAttribute("tour");
+			
 			catalog.Clients().add(client);
-			catalog.save();
-			int clientId = catalog.Clients().getLastId();
-			client.setId(clientId);
-			for(Tour tour: tours){
-				tour.setClient(client);
-				catalog.Tours().add(tour);
-				catalog.save();
-				tour.setId(catalog.Tours().getLastId());
-				/*History log = new History();
-				log.setAmount((double)wallet.getAsset().floatValue());
-				log.setDate(new Date(new java.util.Date().getTime()));
-				log.setRate(1.0);
-				log.setFrom(wallet);
-				log.setTo(wallet);*/
-				//catalog.WallettHistory().add(log);
-			}
 			catalog.saveAndClose();
-			session.removeAttribute("client");
-			session.removeAttribute("tours");
+			//int clientId = catalog.Clients().getLastId();
+			//client.setId(clientId);
+			
+			catalog.Tours().add(tour);
+			catalog.saveAndClose();
+			//int tourId = catalog.Tours().getLastId();
+			//tour.setId(tourId);
+			catalog.saveAndClose();
+			
 			response.sendRedirect("index.html");
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}		
+		} catch (ClassNotFoundException a) {
+			// TODO Auto-generated catch block
+			a.printStackTrace();	
+	} 
 	}
-
-}
+	}
